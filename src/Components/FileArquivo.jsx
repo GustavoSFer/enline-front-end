@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FileArquivo() {
+function FileArquivo({ name, onChange }) {
   return (
-    <input type="file" name="file" />
+    <input type="file" name={name} onChange={onChange} />
   );
 }
 
