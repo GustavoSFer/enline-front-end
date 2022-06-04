@@ -4,7 +4,7 @@ import FormArquivos from './FormArquivos';
 export default function Index() {
   return (
     <div>
-      <h1>Primeira pagina</h1>
+      <h1>Upload de Arquivos</h1>
       <FormArquivos />
     </div>
   );
