@@ -38,11 +38,14 @@ function FormArquivos() {
   return (
     <MyContext.Provider value={ contexto }>
       <form method='post' encType='multipart/form-data' onSubmit={upload}>
-        <FileArquivo name="file" onChange={ (e) => setFile(e.target.files[0])} />
-        <ButtonUpload />
+        <div className="form-label d-flex">
+          <FileArquivo name="file" onChange={ (e) => setFile(e.target.files[0])} />
+          <ButtonUpload />
+
+        </div>
       </form>
       <div>
-        <div>
+        <div className="d-flex flex-column">
           {
             (bankData.length === 0) ? <h2>Sem arquivos</h2>
               : bankData.map((file) => <ListFile key={file._id} file={file} click={hadleClickDelete} />)
