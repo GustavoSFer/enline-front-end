@@ -11,7 +11,12 @@ const uploadRequest = async (endpoint, body) => {
   await axios.post((baseURL + endpoint), body);
 };
 
+const deleteFileRequest = async (endpoint, params) => {
+  await axios.delete(`${baseURL}${endpoint}${params}`);
+}
+
 export {
   uploadRequest,
   dataRequest,
+  deleteFileRequest,
 }

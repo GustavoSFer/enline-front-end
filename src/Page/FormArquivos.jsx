@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import MyContext from '../MyContext/MyContext';
 import FileArquivo from '../Components/FileArquivo';
 import ButtonUpload from '../Components/ButtonUpload';
-import { uploadRequest, dataRequest } from '../Services/index';
+import { uploadRequest, dataRequest, deleteFileRequest } from '../Services/index';
+import ListFile from '../Components/ListFile';
 
 function FormArquivos() {
   const [file, setFile] = useState('');
@@ -14,20 +15,25 @@ function FormArquivos() {
     formData.append('file', file);
 
     await uploadRequest('/upload', formData)
-  }
+  };
 
   const requestDataInit = async () => {
     const data = await dataRequest('/');
     setBankData(data);
-  }
+  };
+
+  const hadleClickDelete = async ({ target }) => {
+    await deleteFileRequest('/', target.id);
+    requestDataInit();
+  };
 
   useEffect(() => {
     requestDataInit();
-  })
+  });
 
   const contexto = {
     file,
-  }
+  };
 
   return (
     <MyContext.Provider value={ contexto }>
@@ -39,7 +45,7 @@ function FormArquivos() {
         <div>
           {
             (bankData.length === 0) ? <h2>Sem arquivos</h2>
-              : bankData.map((arquivo) => <div key={arquivo._id}> <p>{ arquivo.name }</p> </div>)
+              : bankData.map((file) => <ListFile key={file._id} file={file} click={hadleClickDelete} />)
           }
         </div>
       </div>
