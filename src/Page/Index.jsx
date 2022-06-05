@@ -5,7 +5,7 @@ import enline from '../images/enline.png'
 export default function Index() {
   return (
     <div className="container">
-      <div className="p-3 mb-2 bg-info text-dark d-flex justify-content-between rounded-top">
+      <div data-testid="logo" className="p-3 mb-2 bg-info text-dark d-flex justify-content-between rounded-top">
         <h1>
           <img src={enline} alt="Enline" />
         </h1>
