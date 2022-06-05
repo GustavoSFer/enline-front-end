@@ -38,8 +38,8 @@ function FormArquivos() {
   return (
     <MyContext.Provider value={ contexto }>
       <form method='post' encType='multipart/form-data' onSubmit={upload}>
-        <div className="form-label d-flex">
-          <FileArquivo name="file" onChange={ (e) => setFile(e.target.files[0])} />
+        <div className="form-label d-flex" data-testid="file">
+          <FileArquivo name="file" data-testid="file" onChange={ (e) => setFile(e.target.files[0])} />
           <ButtonUpload />
 
         </div>
