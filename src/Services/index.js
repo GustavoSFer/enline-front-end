@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = `http://localhost:${process.env.REACT_APP_API_PORT || '3001'}`;
+const baseURL = process.env.REACT_APP_API_URL;
 
 const dataRequest = async (endpoint) => {
   const { data } = await axios.get((baseURL + endpoint));
