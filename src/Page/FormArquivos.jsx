@@ -29,7 +29,7 @@ function FormArquivos() {
 
   useEffect(() => {
     requestDataInit();
-  });
+  },[]);
 
   const contexto = {
     file,
