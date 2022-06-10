@@ -1,5 +1,4 @@
 import axios from 'axios';
-require('dotenv').congif()
 
 const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
