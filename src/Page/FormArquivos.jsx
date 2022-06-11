@@ -14,7 +14,9 @@ function FormArquivos() {
     const formData = new FormData();
     formData.append('file', file);
 
-    await uploadRequest('/upload', formData)
+    await uploadRequest('/upload', formData);
+
+    requestDataInit();
   };
 
   const requestDataInit = async () => {
